@@ -3,8 +3,6 @@ import os
 import sys
 from videoproc import youtube_preprocess
 from chunking import chunk_by_size
-import python_telegram_bot
-
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 if not openai.api_key:
