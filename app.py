@@ -37,8 +37,8 @@ def get():
     }
     </script>
     """
-    return Titled("YouTube Transcription", form, Div(iºd="transcription_output", *busy_indicator), 
-                  NotStr(script))
+    return Titled("YouTube Transcription", form, Div(id="transcription_output", *busy_indicator), 
+                  NotStr(script), Br())
 
 @rt('/transcribe')
 def post(youtube_link:str):
@@ -76,7 +76,7 @@ def post(youtube_link:str):
     # Return the transcription result with buttons
     return Div(
         H3("Transcription Result:"),
-        Pre(transcript_text, id="transcription_text"),
+        Textarea(transcript_text, id="transcription_text", readonly=True, rows=10),
         Div(copy_button, export_link),
     )
 
